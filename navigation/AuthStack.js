@@ -5,13 +5,11 @@ import ForgotPassword from '../screens/ForgotPassword';
 
 const Stack = createNativeStackNavigator();
 
-const AuthStack = () => {
+export default function AuthStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator>
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
     </Stack.Navigator>
   );
-};
-
-export default AuthStack;
+}

@@ -1,41 +1,30 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
-const HomeTab = () => {
+export default function HomeTab() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ color, size }) => {
           let iconName;
-          if (route.name === 'Home') {
-            iconName = focused ? '🏠' : '🏠';
-          } else if (route.name === 'Profile') {
-            iconName = focused ? '👤' : '👤';
+
+          if (route.name === 'Explore') {
+            iconName = 'compass-outline';
+          } else if (route.name === 'Account') {
+            iconName = 'person-outline';
           }
-          return <Text style={{ fontSize: size }}>{iconName}</Text>;
+
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: 'gray',
-        headerShown: false,
       })}
     >
-      <Tab.Screen 
-        name="Home" 
-        component={Home} 
-        options={{ title: 'Trang chủ' }}
-      />
-      <Tab.Screen 
-        name="Profile" 
-        component={Profile} 
-        options={{ title: 'Cá nhân' }}
-      />
+      <Tab.Screen name="Explore" component={Home} />
+      <Tab.Screen name="Account" component={Profile} />
     </Tab.Navigator>
   );
-};
-
-export default HomeTab;
+}

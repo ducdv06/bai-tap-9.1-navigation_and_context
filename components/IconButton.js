@@ -1,48 +1,21 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const IconButton = ({ onPress, icon, text }) => {
-  const getIconEmoji = () => {
-    switch (icon) {
-      case 'google':
-        return '🇬';
-      case 'facebook':
-        return '🇫';
-      default:
-        return '🔵';
-    }
-  };
-
+export default function IconButton({ title }) {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.icon}>{getIconEmoji()}</Text>
-      <Text style={styles.text}>{text}</Text>
+    <TouchableOpacity style={styles.btn}>
+      <Text>{title}</Text>
     </TouchableOpacity>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#fff',
+  btn: {
+    flex: 1,
+    padding: 12,
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    marginVertical: 8,
-  },
-  icon: {
-    fontSize: 24,
-    marginRight: 12,
-  },
-  text: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#333',
+    borderRadius: 12,
+    alignItems: 'center',
+    marginHorizontal: 5,
   },
 });
-
-export default IconButton;

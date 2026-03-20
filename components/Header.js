@@ -1,27 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Header = ({ title }) => {
+export default function Header({ title }) {
   return (
-    <View style={styles.header}>
+    <View style={styles.row}>
       <Text style={styles.title}>{title}</Text>
+      <Text style={styles.view}>View all</Text>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  header: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-  },
+  row: { flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10 },
+  title: { fontSize: 18, fontWeight: 'bold' },
+  view: { color: 'orange' },
 });
-
-export default Header;
